@@ -1,438 +1,540 @@
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Saint Mark Missionary Baptist Church</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<title>Saint Mark Missionary Baptist Church</title>
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #eee9df;
-            color: #222;
-        }
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-        .navbar {
-            background: #000;
-            color: white;
-            padding: 30px 50px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+<style>
 
-        .navbar h2 {
-            margin: 0;
-            font-size: 24px;
-            font-weight: bold;
-            white-space: nowrap;
-        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        .navbar a {
-            color: white;
-            text-decoration: none;
-            margin-left: 25px;
-            font-size: 18px;
-            font-weight: 600;
-        }
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #eee9df;
+    color: #222;
+}
 
-        .hero-slider {
-            position: relative;
-            width: 100%;
-            height: 850px;
-            overflow: hidden;
-            background: black;
-        }
+/* NAVBAR */
 
-        .slide {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            transition: opacity 1s ease;
-        }
+.navbar {
+    background: #000;
+    color: white;
+    padding: 30px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-        .slide.active {
-            opacity: 1;
-        }
+.navbar h2 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+    white-space: nowrap;
+}
 
-        .slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center center;
-            filter: brightness(65%);
-        }
+.navbar a {
+    color: white;
+    text-decoration: none;
+    margin-left: 25px;
+    font-size: 18px;
+    font-weight: bold;
+}
 
-        .hero-content {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-            color: white;
-            z-index: 5;
-        }
+.navbar a:hover {
+    color: #ffd700;
+}
 
-        .hero-content h1 {
-            font-size: 70px;
-            margin-bottom: 15px;
-            text-shadow: 2px 2px 10px rgba(0,0,0,.8);
-        }
+/* HERO SLIDESHOW */
 
-        .hero-content p {
-            font-size: 28px;
-            text-shadow: 2px 2px 10px rgba(0,0,0,.8);
-        }
+.hero-slider {
+    position: relative;
+    width: 100%;
+    height: 780px;
+    overflow: hidden;
+    background: #000;
+}
 
-        .prev,
-        .next {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(0,0,0,.45);
-            color: white;
-            border: none;
-            font-size: 42px;
-            cursor: pointer;
-            padding: 15px 22px;
-            z-index: 6;
-        }
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
 
-        .prev {
-            left: 25px;
-        }
+.slide.active {
+    opacity: 1;
+}
 
-        .next {
-            right: 25px;
-        }
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    filter: brightness(60%);
+}
 
-        .middle-title {
-            text-align: center;
-            padding: 70px 20px 30px;
-        }
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    z-index: 5;
+    width: 90%;
+}
 
-        .middle-title h2 {
-            font-size: 42px;
-            margin-bottom: 10px;
-        }
+.hero-content h1 {
+    font-size: 72px;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 12px rgba(0,0,0,.9);
+}
 
-        .middle-title h1 {
-            font-size: 55px;
-            color: #0057d9;
-            margin: 0;
-        }
+.hero-content p {
+    font-size: 30px;
+    line-height: 1.4;
+    text-shadow: 2px 2px 12px rgba(0,0,0,.9);
+}
 
-        .sermon-section {
-            padding: 40px 70px 80px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 40px;
-        }
+.prev,
+.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,.55);
+    color: white;
+    border: none;
+    font-size: 45px;
+    cursor: pointer;
+    padding: 15px 24px;
+    z-index: 6;
+}
 
-        .sermon-card {
-            background: #303336;
-            color: white;
-            padding: 55px;
-            border-radius: 25px;
-            width: 48%;
-            min-height: 430px;
-        }
+.prev {
+    left: 25px;
+}
 
-        .sermon-card h2 {
-            font-size: 45px;
-            margin-bottom: 20px;
-        }
+.next {
+    right: 25px;
+}
 
-        .sermon-card h3 {
-            font-size: 26px;
-            margin-top: 25px;
-            margin-bottom: 8px;
-        }
+.prev:hover,
+.next:hover {
+    background: rgba(0,0,0,.8);
+}
 
-        .sermon-card p {
-            font-size: 21px;
-            line-height: 1.6;
-        }
+/* MIDDLE TITLE */
 
-        .pastor-image {
-            width: 42%;
-            background: white;
-            padding: 10px;
-        }
+.middle-title {
+    text-align: center;
+    padding: 80px 20px 40px;
+}
 
-        .pastor-image img {
-            width: 100%;
-            height: 650px;
-            object-fit: contain;
-            object-position: center;
-            border-radius: 4px;
-            display: block;
-        }
+.middle-title h2 {
+    font-size: 42px;
+    margin-bottom: 15px;
+}
 
-        .events-hero {
-            height: 700px;
-            background-image:
-                linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)),
-                url("IMG_5636.HEIC");
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-color: black;
-            color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
+.middle-title h1 {
+    font-size: 58px;
+    color: #0057d9;
+}
 
-        .events-hero h1 {
-            font-size: 60px;
-            text-shadow: 2px 2px 10px rgba(0,0,0,.8);
-        }
+/* WORSHIP SECTION */
 
-        .events-hero a {
-            color: white;
-            border: 2px solid white;
-            padding: 12px 80px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: bold;
-        }
+.worship-section {
+    padding: 40px 70px 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 45px;
+}
 
-        .footer {
-            background: #303336;
-            color: white;
-            text-align: center;
-            padding: 70px 20px;
-        }
+.worship-card {
+    background: #303336;
+    color: white;
+    padding: 55px;
+    border-radius: 25px;
+    width: 48%;
+    min-height: 480px;
+}
 
-        .footer h2 {
-            font-size: 38px;
-            margin-bottom: 25px;
-        }
+.worship-card h2 {
+    font-size: 45px;
+    margin-bottom: 20px;
+}
 
-        .social-icons {
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            margin: 30px 0;
-        }
+.worship-card h3 {
+    color: #ffd700;
+    font-size: 26px;
+    margin-top: 25px;
+    margin-bottom: 8px;
+}
 
-        .social-icons a {
-            width: 75px;
-            height: 75px;
-            border-radius: 50%;
-            color: white;
-            text-decoration: none;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 34px;
-            transition: transform 0.3s;
-        }
+.worship-card p {
+    font-size: 21px;
+    line-height: 1.6;
+}
 
-        .social-icons a:hover {
-            transform: scale(1.12);
-        }
+.worship-image {
+    width: 42%;
+    background: white;
+    padding: 10px;
+    border-radius: 12px;
+}
 
-        .facebook {
-            background: #1877f2;
-        }
+.worship-image img {
+    width: 100%;
+    height: 620px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 8px;
+    display: block;
+}
 
-        .instagram {
-            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
-        }
+/* EVENTS HERO */
 
-        .tiktok {
-            background: #000;
-            border: 2px solid white;
-        }
+.events-hero {
+    height: 600px;
+    background-image:
+        linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)),
+        url("IMG_7577.JPG");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
 
-        .youtube {
-            background: #ff0000;
-        }
+.events-hero h1 {
+    font-size: 60px;
+    margin-bottom: 25px;
+    text-shadow: 2px 2px 10px black;
+}
 
-        .footer p {
-            font-size: 26px;
-            line-height: 1.5;
-            margin: 10px 0;
-        }
+.events-hero a {
+    color: white;
+    border: 2px solid white;
+    padding: 13px 80px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+}
 
-        .footer a {
-            color: white;
-        }
-    </style>
+.events-hero a:hover {
+    background: white;
+    color: black;
+}
+
+/* FOOTER */
+
+.footer {
+    background: #303336;
+    color: white;
+    text-align: center;
+    padding: 70px 20px;
+}
+
+.footer h2 {
+    font-size: 38px;
+    margin-bottom: 25px;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin: 30px 0;
+}
+
+.social-icons a {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    color: white;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 34px;
+    transition: transform .3s;
+}
+
+.social-icons a:hover {
+    transform: scale(1.12);
+}
+
+.facebook {
+    background: #1877f2;
+}
+
+.instagram {
+    background: linear-gradient(45deg, #f09433, #dc2743, #bc1888);
+}
+
+.tiktok {
+    background: #000;
+    border: 2px solid white;
+}
+
+.youtube {
+    background: #ff0000;
+}
+
+.footer p {
+    font-size: 24px;
+    line-height: 1.6;
+    margin-top: 15px;
+}
+
+/* MOBILE */
+
+@media(max-width: 900px) {
+
+    .navbar {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .navbar h2 {
+        font-size: 22px;
+    }
+
+    .navbar a {
+        margin-left: 12px;
+        font-size: 16px;
+    }
+
+    .hero-slider {
+        height: 560px;
+    }
+
+    .hero-content h1 {
+        font-size: 46px;
+    }
+
+    .hero-content p {
+        font-size: 22px;
+    }
+
+    .worship-section {
+        flex-direction: column;
+        padding: 40px 25px 70px;
+    }
+
+    .worship-card,
+    .worship-image {
+        width: 100%;
+    }
+
+    .worship-image img {
+        height: auto;
+    }
+
+    .middle-title h2 {
+        font-size: 32px;
+    }
+
+    .middle-title h1 {
+        font-size: 42px;
+    }
+
+    .events-hero h1 {
+        font-size: 42px;
+    }
+}
+
+</style>
 </head>
 
 <body>
 
-    <nav class="navbar">
-        <h2>Saint Mark Missionary Baptist Church</h2>
+<nav class="navbar">
 
-        <div>
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="pastor.html">Pastor</a>
-            <a href="events.html">Events</a>
-            <a href="contact.html">Contact</a>
-        </div>
-    </nav>
+    <h2>Saint Mark Missionary Baptist Church</h2>
 
-    <div class="hero-slider">
-
-        <div class="slide active">
-            <img src="IMG_5632.HEIC" alt="St. Mark Church Event">
-        </div>
-
-        <div class="slide">
-            <img src="IMG_5636.HEIC" alt="St. Mark Church Event">
-        </div>
-
-        <div class="slide">
-            <img src="IMG_6831.HEIC" alt="St. Mark Church Event">
-        </div>
-
-        <div class="slide">
-            <img src="IMG_5616.HEIC" alt="St. Mark Church Event">
-        </div>
-
-        <div class="slide">
-            <img src="IMG_7488.HEIC" alt="Pastor and First Lady">
-        </div>
-
-        <button class="prev">&#10094;</button>
-        <button class="next">&#10095;</button>
-
-        <div class="hero-content">
-            <h1>This Is St. Mark</h1>
-            <p>Reaching the Lost, Making Disciples, and Transforming Lives.</p>
-        </div>
-
+    <div>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="pastor.html">Pastor</a>
+        <a href="events.html">Events</a>
+        <a href="contact.html">Contact</a>
     </div>
 
-    <div class="middle-title">
-        <h2>Building Faith. Serving Families. Meeting Needs.</h2>
+</nav>
+
+<section class="hero-slider">
+
+    <div class="slide active">
+        <img src="IMG_7577.JPG" alt="Saint Mark church family">
+    </div>
+
+    <div class="slide">
+        <img src="IMG_7585.JPG" alt="Pastor preaching">
+    </div>
+
+    <div class="slide">
+        <img src="pastor and lady.png" alt="Pastor and First Lady">
+    </div>
+
+    <button class="prev">&#10094;</button>
+    <button class="next">&#10095;</button>
+
+    <div class="hero-content">
         <h1>This Is St. Mark</h1>
+        <p>Reaching the Lost, Making Disciples, and Transforming Lives.</p>
     </div>
 
-    <div class="sermon-section">
+</section>
 
-        <div class="sermon-card">
-            <h2>Join Us For Worship</h2>
+<section class="middle-title">
 
-            <p>
-                St. Mark Missionary Baptist Church welcomes you to worship,
-                learn, and grow with us.
-            </p>
+    <h2>Building Faith. Serving Families. Meeting Needs.</h2>
 
-            <h3>1st & 3rd Sunday Schedule</h3>
+    <h1>This Is St. Mark</h1>
 
-            <p>
-                <strong>Sunday School:</strong> 10:00 AM<br>
-                <strong>Worship Service:</strong> 11:00 AM
-            </p>
+</section>
 
-            <h3>3rd Friday Bible Study</h3>
+<section class="worship-section">
 
-            <p>
-                <strong>Bible Study:</strong> 6:00 PM
-            </p>
+    <div class="worship-card">
 
-            <h3>Our Vision</h3>
-
-            <p>
-                Reaching the Lost, Making Disciples, and Transforming Lives.
-            </p>
-        </div>
-
-        <div class="pastor-image">
-            <img src="IMG_7488.HEIC" alt="Pastor of St. Mark">
-        </div>
-
-    </div>
-
-    <div class="events-hero">
-        <div>
-            <h1>Upcoming Events At St. Mark</h1>
-            <a href="events.html">Events</a>
-        </div>
-    </div>
-
-    <footer class="footer">
-
-        <h2>Saint Mark Missionary Baptist Church</h2>
-
-        <div class="social-icons">
-
-            <a class="facebook"
-               href="https://www.facebook.com/profile.php?id=61590304181122"
-               target="_blank">
-                <i class="fab fa-facebook-f"></i>
-            </a>
-
-            <a class="instagram"
-               href="https://www.instagram.com/stmarkmissionarybaptistchurch/"
-               target="_blank">
-                <i class="fab fa-instagram"></i>
-            </a>
-
-            <a class="tiktok"
-               href="https://www.tiktok.com/@stmarkmissioanry?lang=en"
-               target="_blank">
-                <i class="fab fa-tiktok"></i>
-            </a>
-
-            <a class="youtube"
-               href="https://www.youtube.com/channel/UC44Mxg9_AY6sDJO-OnbJtHA"
-               target="_blank">
-                <i class="fab fa-youtube"></i>
-            </a>
-
-        </div>
+        <h2>Join Us For Worship</h2>
 
         <p>
-            Saint Mark Missionary Baptist Church<br>
-            529 W. Union St.<br>
-            Vienna, GA 31092
+            Saint Mark Missionary Baptist Church welcomes you to worship,
+            learn, grow, and fellowship with us.
         </p>
 
-    </footer>
+        <h3>1st & 3rd Sunday Schedule</h3>
 
-    <script>
-        let slides = document.querySelectorAll(".slide");
-        let current = 0;
+        <p>
+            <strong>Sunday School:</strong> 10:00 AM<br>
+            <strong>Worship Service:</strong> 11:00 AM
+        </p>
 
-        function showSlide(index) {
-            slides[current].classList.remove("active");
+        <h3>3rd Friday Bible Study</h3>
 
-            current = index;
+        <p>
+            <strong>Bible Study:</strong> 6:00 PM
+        </p>
 
-            if (current >= slides.length) {
-                current = 0;
-            }
+        <h3>Our Vision</h3>
 
-            if (current < 0) {
-                current = slides.length - 1;
-            }
+        <p>
+            Reaching the Lost, Making Disciples, and Transforming Lives.
+        </p>
 
-            slides[current].classList.add("active");
-        }
+    </div>
 
-        document.querySelector(".next").onclick = function () {
-            showSlide(current + 1);
-        };
+    <div class="worship-image">
+        <img src="pastor and lady.png" alt="Pastor and First Lady">
+    </div>
 
-        document.querySelector(".prev").onclick = function () {
-            showSlide(current - 1);
-        };
+</section>
 
-        setInterval(function () {
-            showSlide(current + 1);
-        }, 5000);
-    </script>
+<section class="events-hero">
+
+    <div>
+        <h1>Upcoming Events At St. Mark</h1>
+        <a href="events.html">Events</a>
+    </div>
+
+</section>
+
+<footer class="footer">
+
+    <h2>Saint Mark Missionary Baptist Church</h2>
+
+    <div class="social-icons">
+
+        <a class="facebook"
+           href="https://www.facebook.com/profile.php?id=61590304181122"
+           target="_blank">
+            <i class="fab fa-facebook-f"></i>
+        </a>
+
+        <a class="instagram"
+           href="https://www.instagram.com/stmarkmissionarybaptistchurch/"
+           target="_blank">
+            <i class="fab fa-instagram"></i>
+        </a>
+
+        <a class="tiktok"
+           href="https://www.tiktok.com/@stmarkmissioanry?lang=en"
+           target="_blank">
+            <i class="fab fa-tiktok"></i>
+        </a>
+
+        <a class="youtube"
+           href="https://www.youtube.com/channel/UC44Mxg9_AY6sDJO-OnbJtHA"
+           target="_blank">
+            <i class="fab fa-youtube"></i>
+        </a>
+
+    </div>
+
+    <p>
+        529 W. Union St.<br>
+        Vienna, GA 31092
+    </p>
+
+    <p>
+        Phone: (678) 458-3190<br>
+        Email: stmarkmissionarychurch@gmail.com
+    </p>
+
+</footer>
+
+<script>
+
+let slides = document.querySelectorAll(".slide");
+let current = 0;
+
+function showSlide(index) {
+    slides[current].classList.remove("active");
+
+    current = index;
+
+    if (current >= slides.length) {
+        current = 0;
+    }
+
+    if (current < 0) {
+        current = slides.length - 1;
+    }
+
+    slides[current].classList.add("active");
+}
+
+document.querySelector(".next").onclick = function () {
+    showSlide(current + 1);
+};
+
+document.querySelector(".prev").onclick = function () {
+    showSlide(current - 1);
+};
+
+setInterval(function () {
+    showSlide(current + 1);
+}, 5000);
+
+</script>
 
 </body>
 </html>
