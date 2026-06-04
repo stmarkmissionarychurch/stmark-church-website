@@ -1,543 +1,162 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Saint Mark Missionary Baptist Church</title>
-
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-<style>
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #eee9df;
-    color: #222;
-}
-
-/* NAVBAR */
-
-.navbar {
-    background: #000;
-    color: white;
-    padding: 30px 50px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.navbar h2 {
-    margin: 0;
-    font-size: 24px;
-    font-weight: bold;
-    white-space: nowrap;
-}
-
-.navbar a {
-    color: white;
-    text-decoration: none;
-    margin-left: 25px;
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.navbar a:hover {
-    color: #ffd700;
-}
-
-/* HERO SLIDER */
-
-.hero-slider {
-    position: relative;
-    width: 100%;
-    height: 780px;
-    overflow: hidden;
-    background: #000;
-}
-
-.slide {
-    position: absolute;
-    inset: 0;
-    opacity: 0;
-    transition: opacity 1s ease;
-}
-
-.slide.active {
-    opacity: 1;
-    z-index: 1;
-}
-
-.slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center center;
-    filter: brightness(60%);
-    display: block;
-}
-
-.hero-content {
-    position: absolute;
-    z-index: 5;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 90%;
-    text-align: center;
-    color: white;
-}
-
-.hero-content h1 {
-    font-size: 72px;
-    margin-bottom: 20px;
-    text-shadow: 2px 2px 12px rgba(0,0,0,.9);
-}
-
-.hero-content p {
-    font-size: 30px;
-    line-height: 1.4;
-    text-shadow: 2px 2px 12px rgba(0,0,0,.9);
-}
-
-.prev,
-.next {
-    position: absolute;
-    z-index: 10;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0,0,0,.55);
-    color: white;
-    border: none;
-    font-size: 45px;
-    cursor: pointer;
-    padding: 15px 24px;
-}
-
-.prev {
-    left: 25px;
-}
-
-.next {
-    right: 25px;
-}
-
-.prev:hover,
-.next:hover {
-    background: rgba(0,0,0,.8);
-}
-
-/* MIDDLE TITLE */
-
-.middle-title {
-    text-align: center;
-    padding: 80px 20px 40px;
-}
-
-.middle-title h2 {
-    font-size: 42px;
-    margin-bottom: 15px;
-}
-
-.middle-title h1 {
-    font-size: 58px;
-    color: #0057d9;
-}
-
-/* WORSHIP SECTION */
-
-.worship-section {
-    padding: 40px 70px 90px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 45px;
-}
-
-.worship-card {
-    background: #303336;
-    color: white;
-    padding: 55px;
-    border-radius: 25px;
-    width: 48%;
-    min-height: 480px;
-}
-
-.worship-card h2 {
-    font-size: 45px;
-    margin-bottom: 20px;
-}
-
-.worship-card h3 {
-    color: #ffd700;
-    font-size: 26px;
-    margin-top: 25px;
-    margin-bottom: 8px;
-}
-
-.worship-card p {
-    font-size: 21px;
-    line-height: 1.6;
-}
-
-.worship-image {
-    width: 42%;
-    background: white;
-    padding: 10px;
-    border-radius: 12px;
-}
-
-.worship-image img {
-    width: 100%;
-    height: 620px;
-    object-fit: cover;
-    object-position: center;
-    border-radius: 8px;
-    display: block;
-}
-
-/* EVENTS HERO */
-
-.events-hero {
-    height: 600px;
-    background-image:
-        linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)),
-        url("IMG_7577.JPG");
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
-
-.events-hero h1 {
-    font-size: 60px;
-    margin-bottom: 25px;
-    text-shadow: 2px 2px 10px black;
-}
-
-.events-hero a {
-    color: white;
-    border: 2px solid white;
-    padding: 13px 80px;
-    border-radius: 30px;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 18px;
-}
-
-.events-hero a:hover {
-    background: white;
-    color: black;
-}
-
-/* FOOTER */
-
-.footer {
-    background: #303336;
-    color: white;
-    text-align: center;
-    padding: 70px 20px;
-}
-
-.footer h2 {
-    font-size: 38px;
-    margin-bottom: 25px;
-}
-
-.social-icons {
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-    margin: 30px 0;
-}
-
-.social-icons a {
-    width: 75px;
-    height: 75px;
-    border-radius: 50%;
-    color: white;
-    text-decoration: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 34px;
-    transition: transform .3s;
-}
-
-.social-icons a:hover {
-    transform: scale(1.12);
-}
-
-.facebook {
-    background: #1877f2;
-}
-
-.instagram {
-    background: linear-gradient(45deg, #f09433, #dc2743, #bc1888);
-}
-
-.tiktok {
-    background: #000;
-    border: 2px solid white;
-}
-
-.youtube {
-    background: #ff0000;
-}
-
-.footer p {
-    font-size: 24px;
-    line-height: 1.6;
-    margin-top: 15px;
-}
-
-/* MOBILE */
-
-@media(max-width: 900px) {
-
-    .navbar {
-        flex-direction: column;
-        gap: 20px;
-        text-align: center;
-    }
-
-    .navbar h2 {
-        font-size: 22px;
-    }
-
-    .navbar a {
-        margin-left: 12px;
-        font-size: 16px;
-    }
-
-    .hero-slider {
-        height: 560px;
-    }
-
-    .hero-content h1 {
-        font-size: 46px;
-    }
-
-    .hero-content p {
-        font-size: 22px;
-    }
-
-    .worship-section {
-        flex-direction: column;
-        padding: 40px 25px 70px;
-    }
-
-    .worship-card,
-    .worship-image {
-        width: 100%;
-    }
-
-    .worship-image img {
-        height: auto;
-    }
-
-    .middle-title h2 {
-        font-size: 32px;
-    }
-
-    .middle-title h1 {
-        font-size: 42px;
-    }
-
-    .events-hero h1 {
-        font-size: 42px;
-    }
-}
-
-</style>
+    <title>St. Mark Missionary Baptist Church</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #eee9df;
+            color: #222;
+        }
+
+        .navbar {
+            background: #000;
+            color: white;
+            padding: 35px 70px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar h2 {
+            margin: 0;
+            font-size: 28px;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin-left: 30px;
+            font-size: 18px;
+        }
+
+        .hero-section {
+            padding: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0;
+        }
+
+        .hero-text {
+            background: #303336;
+            color: white;
+            padding: 60px;
+            border-radius: 25px;
+            width: 48%;
+            min-height: 420px;
+            z-index: 2;
+        }
+
+        .hero-text h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .hero-text p {
+            font-size: 20px;
+            line-height: 1.5;
+        }
+
+        .hero-image {
+            width: 45%;
+            margin-left: -40px;
+            z-index: 3;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        .section {
+            background: white;
+            margin: 40px auto;
+            padding: 45px;
+            max-width: 1000px;
+            border-radius: 15px;
+        }
+
+        .section h2 {
+            color: #1c2c54;
+        }
+
+        .footer {
+            background: #000;
+            color: white;
+            text-align: center;
+            padding: 25px;
+            margin-top: 50px;
+        }
+    </style>
 </head>
 
 <body>
 
-<nav class="navbar">
+    <nav class="navbar">
+        <h2>St. Mark MBC</h2>
 
-    <h2>Saint Mark Missionary Baptist Church</h2>
+        <div>
+            <a href="main.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="pastor.html">Pastor</a>
+            <a href="events.html">Events</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
 
-    <div>
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="pastor.html">Pastor</a>
-        <a href="events.html">Events</a>
-        <a href="contact.html">Contact</a>
+    <div class="hero-section">
+
+        <div class="hero-text">
+            <h1>Sunday Worship</h1>
+
+            <p>
+                Join us for worship, fellowship, and the Word of God at
+                St. Mark Missionary Baptist Church.
+            </p>
+
+            <p>
+                <strong>Service Time</strong><br>
+                Sunday Worship: 10:00 AM
+            </p>
+
+            <p>
+                <strong>Our Vision</strong><br>
+                Reaching the Lost, Making Disciples, and Transforming Lives.
+            </p>
+        </div>
+
+        <div class="hero-image">
+            <img src="images/IMG_7488.HEIC" alt="Pastor of St. Mark Missionary Baptist Church">
+        </div>
+
     </div>
 
-</nav>
-
-<section class="hero-slider">
-
-    <div class="slide active">
-        <img src="IMG_7577.JPG" alt="Saint Mark church family">
-    </div>
-
-    <div class="slide">
-        <img src="IMG_7585.JPG" alt="Pastor preaching">
-    </div>
-
-    <div class="slide">
-        <img src="pastor and lady.png" alt="Pastor and First Lady">
-    </div>
-
-    <button class="prev" type="button">&#10094;</button>
-    <button class="next" type="button">&#10095;</button>
-
-    <div class="hero-content">
-        <h1>This Is St. Mark</h1>
-        <p>Reaching the Lost, Making Disciples, and Transforming Lives.</p>
-    </div>
-
-</section>
-
-<section class="middle-title">
-
-    <h2>Building Faith. Serving Families. Meeting Needs.</h2>
-
-    <h1>This Is St. Mark</h1>
-
-</section>
-
-<section class="worship-section">
-
-    <div class="worship-card">
-
-        <h2>Join Us For Worship</h2>
+    <div class="section">
+        <h2>Welcome to St. Mark</h2>
 
         <p>
-            Saint Mark Missionary Baptist Church welcomes you to worship,
-            learn, grow, and fellowship with us.
+            We are grateful to welcome you to St. Mark Missionary Baptist Church.
+            Our church family is committed to faith, fellowship, service, and community.
         </p>
+    </div>
 
-        <h3>1st & 3rd Sunday Schedule</h3>
+    <div class="section">
+        <h2>Church Highlights</h2>
 
         <p>
-            <strong>Sunday School:</strong> 10:00 AM<br>
-            <strong>Worship Service:</strong> 11:00 AM
+            St. Mark continues to serve through worship services, community outreach,
+            fellowship events, prayer walks, seasonal giving, and church-wide celebrations.
         </p>
-
-        <h3>3rd Friday Bible Study</h3>
-
-        <p>
-            <strong>Bible Study:</strong> 6:00 PM
-        </p>
-
-        <h3>Our Vision</h3>
-
-        <p>
-            Reaching the Lost, Making Disciples, and Transforming Lives.
-        </p>
-
     </div>
 
-    <div class="worship-image">
-        <img src="pastor and lady.png" alt="Pastor and First Lady">
+    <div class="footer">
+        <p>© 2026 St. Mark Missionary Baptist Church. All Rights Reserved.</p>
     </div>
-
-</section>
-
-<section class="events-hero">
-
-    <div>
-        <h1>Upcoming Events At St. Mark</h1>
-        <a href="events.html">Events</a>
-    </div>
-
-</section>
-
-<footer class="footer">
-
-    <h2>Saint Mark Missionary Baptist Church</h2>
-
-    <div class="social-icons">
-
-        <a class="facebook"
-           href="https://www.facebook.com/profile.php?id=61590304181122"
-           target="_blank">
-            <i class="fab fa-facebook-f"></i>
-        </a>
-
-        <a class="instagram"
-           href="https://www.instagram.com/stmarkmissionarybaptistchurch/"
-           target="_blank">
-            <i class="fab fa-instagram"></i>
-        </a>
-
-        <a class="tiktok"
-           href="https://www.tiktok.com/@stmarkmissioanry?lang=en"
-           target="_blank">
-            <i class="fab fa-tiktok"></i>
-        </a>
-
-        <a class="youtube"
-           href="https://www.youtube.com/channel/UC44Mxg9_AY6sDJO-OnbJtHA"
-           target="_blank">
-            <i class="fab fa-youtube"></i>
-        </a>
-
-    </div>
-
-    <p>
-        529 W. Union St.<br>
-        Vienna, GA 31092
-    </p>
-
-    <p>
-        Phone: (678) 458-3190<br>
-        Email: stmarkmissionarychurch@gmail.com
-    </p>
-
-</footer>
-
-<script>
-
-let slides = document.querySelectorAll(".slide");
-let current = 0;
-
-function showSlide(index) {
-    slides.forEach(function(slide) {
-        slide.classList.remove("active");
-    });
-
-    current = index;
-
-    if (current >= slides.length) {
-        current = 0;
-    }
-
-    if (current < 0) {
-        current = slides.length - 1;
-    }
-
-    slides[current].classList.add("active");
-}
-
-document.querySelector(".next").addEventListener("click", function () {
-    showSlide(current + 1);
-});
-
-document.querySelector(".prev").addEventListener("click", function () {
-    showSlide(current - 1);
-});
-
-setInterval(function () {
-    showSlide(current + 1);
-}, 5000);
-
-</script>
 
 </body>
 </html>
